@@ -7,6 +7,7 @@ var PlayerClass = function() {
   this.strengthBonus = 0;
   this.intelligenceBonus = 0;
   this.magical = false;
+  this.stealthy = false;
 
   this.toString = function() {
     return this.name;
@@ -117,4 +118,57 @@ Sorcerer.prototype = new Mage();
       - Ninja
       - Assassin
  */
+
+ var Stealth = function () {
+  this.name = "Stealth";
+  this.stealthy = true;
+  this.strengthBonus = this.strengthBonus + 5;
+  this.intelligenceBonus = this.intelligenceBonus + 5;
+  this.stealthBonus = this.stealthBonus + 20;
+ };
+Stealth.prototype = new PlayerClass();
+
+var Thief = function () {
+  this.name = "Thief";
+  this.stealthBonus = this.stealthBonus + 10;
+};
+Thief.prototype = new Stealth();
+
+var Ninja = function () {
+  this.name = "Ninja";
+  this.stealthBonus = this.stealthBonus + 15;
+  this.strengthBonus = this.strengthBonus + 10;
+  this.healthBonus = this.healthBonus + 5;
+};
+Ninja.prototype = new Stealth();
+
+var Assassin = function () {
+  this.name = "Assassin";
+  this.stealthBonus = this.stealthBonus + 20;
+  this.strengthBonus = this.strengthBonus + 5;
+  this.healthBonus = this.healthBonus + 5;
+};
+Assassin.prototype = new Stealth();
+
+/*
+    UNICORN CLASS
+*/
+
+var Unicorn = function () {
+  this.name = "Unicorn";
+  this.stealthy = true;
+  this.magical = true;
+  this.strengthBonus = this.strengthBonus + 100;
+  this.intelligenceBonus = this.intelligenceBonus + 100;
+  this.stealthBonus = this.stealthBonus + 100;
+  this.healthBonus = this.healthBonus + 100;
+};
+Unicorn.prototype = new PlayerClass();
+
+
+
+
+
+
+
 

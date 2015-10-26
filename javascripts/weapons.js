@@ -29,3 +29,6 @@ var WarAxe = function() {
 };
 WarAxe.prototype = new Weapon();
 
+var Gloves = function() {
+  
+};
