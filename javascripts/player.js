@@ -2,6 +2,7 @@
   Define the base object for any player of Gauntlet,
   whether a human player or a monster.
  */
+ 
 var Player = function(name) {
   this.species = null;
   this.class = null;
@@ -57,7 +58,7 @@ Player.prototype.generateClass = function() {
   Define the base properties for a human in a 
   constructor function.
  */
-// var Human = function() {
+var Human = function() {
 //   var randomSkin;
 
 //   this.species = "Human";
@@ -68,7 +69,7 @@ Player.prototype.generateClass = function() {
 //   this.skinColor = this.skinColors[randomSkin];
 
 //   this.allowedClasses = ["Warrior", "Berserker", "Valkyrie", "Monk"];
-// };
+};
 // Human.prototype = new Player();
 
 

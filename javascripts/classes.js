@@ -12,6 +12,7 @@ var PlayerClass = function() {
     return this.name;
   }
 };
+PlayerClass.prototype=new Player();
 
 /*
     FIGHTER CLASSES
@@ -119,54 +120,54 @@ Sorcerer.prototype = new Mage();
       
  */
 
-var stealth = function() {
-  this.name = "stealth";
+var Stealth = function() {
+  this.name = "Stealth";
   this.strengthBonus = + 5;
   this.intelligenceBonus = + 5;
   this.magical = false;
   this.stealth = + 20;
 
-  stealth.prototype = new PlayerClass ();
+  Stealth.prototype = new PlayerClass ();
 };
 
-var thief = function() {
-  this.name = "stealth";
+var Thief = function() {
+  this.name = "Thief";
   this.magical = false;
   this.stealth = + 10;
 
-  stealth.prototype = new stealth ();
+  Thief.prototype = new Stealth ();
 };
 
-var ninja = function() {
-  this.name = "stealth";
+var Ninja = function() {
+  this.name = "Ninja";
   this.strengthBonus = + 10;
   this.healthBonus = this.healthBonus + 5;
   this.magical = false;
   this.stealth = + 15;
 
-  stealth.prototype = new stealth ();
+  Ninja.prototype = new Stealth ();
 };
 
-var assassin = function() {
-  this.name = "stealth";
+var Assassin = function() {
+  this.name = "Assassin";
   this.strengthBonus = + 5;
   this.healthBonus = this.healthBonus + 5;
   this.magical = false;
   this.stealth = + 20;
 
-  stealth.prototype = new stealth ();
+  Assassin.prototype = new Stealth ();
 };
 
 //Unicorn Class
   //unicorn
 
-  var unicorn = function() {
+  var Unicorn = function() {
   this.name = "Unicorn";
   this.strengthBonus = + 100;
   this.healthBonus = this.healthBonus + 100;
   this.magical = true;
   this.stealth = + 100;
 
-  unicorn.prototype = new PlayerClass();
+  Unicorn.prototype = new PlayerClass();
 };
 
