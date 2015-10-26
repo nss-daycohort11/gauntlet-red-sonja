@@ -116,5 +116,57 @@ Sorcerer.prototype = new Mage();
       - Thief
       - Ninja
       - Assassin
+      
  */
+
+var stealth = function() {
+  this.name = "stealth";
+  this.strengthBonus = + 5;
+  this.intelligenceBonus = + 5;
+  this.magical = false;
+  this.stealth = + 20;
+
+  stealth.prototype = new PlayerClass ();
+};
+
+var thief = function() {
+  this.name = "stealth";
+  this.magical = false;
+  this.stealth = + 10;
+
+  stealth.prototype = new stealth ();
+};
+
+var ninja = function() {
+  this.name = "stealth";
+  this.strengthBonus = + 10;
+  this.healthBonus = this.healthBonus + 5;
+  this.magical = false;
+  this.stealth = + 15;
+
+  stealth.prototype = new stealth ();
+};
+
+var assassin = function() {
+  this.name = "stealth";
+  this.strengthBonus = + 5;
+  this.healthBonus = this.healthBonus + 5;
+  this.magical = false;
+  this.stealth = + 20;
+
+  stealth.prototype = new stealth ();
+};
+
+//Unicorn Class
+  //unicorn
+
+  var unicorn = function() {
+  this.name = "Unicorn";
+  this.strengthBonus = + 100;
+  this.healthBonus = this.healthBonus + 100;
+  this.magical = true;
+  this.stealth = + 100;
+
+  unicorn.prototype = new PlayerClass();
+};
 
