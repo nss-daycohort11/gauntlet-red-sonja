@@ -117,58 +117,59 @@ Sorcerer.prototype = new Mage();
       - Thief
       - Ninja
       - Assassin
+      
  */
 
- var Stealth = function () {
+
+var Stealth = function() {
   this.name = "Stealth";
-  this.stealthy = true;
-  this.strengthBonus = this.strengthBonus + 5;
-  this.intelligenceBonus = this.intelligenceBonus + 5;
-  this.stealthBonus = this.stealthBonus + 20;
- };
-Stealth.prototype = new PlayerClass();
+  this.strengthBonus = + 5;
+  this.intelligenceBonus = + 5;
+  this.magical = false;
+  this.stealth = + 20;
 
-var Thief = function () {
+  Stealth.prototype = new PlayerClass ();
+};
+
+var Thief = function() {
   this.name = "Thief";
-  this.stealthBonus = this.stealthBonus + 10;
-};
-Thief.prototype = new Stealth();
+  this.magical = false;
+  this.stealth = + 10;
 
-var Ninja = function () {
+  Thief.prototype = new Stealth ();
+};
+
+var Ninja = function() {
   this.name = "Ninja";
-  this.stealthBonus = this.stealthBonus + 15;
-  this.strengthBonus = this.strengthBonus + 10;
+  this.strengthBonus = + 10;
   this.healthBonus = this.healthBonus + 5;
-};
-Ninja.prototype = new Stealth();
+  this.magical = false;
+  this.stealth = + 15;
 
-var Assassin = function () {
+  Ninja.prototype = new Stealth ();
+};
+
+var Assassin = function() {
   this.name = "Assassin";
-  this.stealthBonus = this.stealthBonus + 20;
-  this.strengthBonus = this.strengthBonus + 5;
+  this.strengthBonus = + 5;
   this.healthBonus = this.healthBonus + 5;
+  this.magical = false;
+  this.stealth = + 20;
+
+  Assassin.prototype = new Stealth ();
 };
-Assassin.prototype = new Stealth();
 
-/*
-    UNICORN CLASS
-*/
+//Unicorn Class
+  //unicorn
 
-var Unicorn = function () {
+  var Unicorn = function() {
   this.name = "Unicorn";
-  this.stealthy = true;
-  this.magical = true;
-  this.strengthBonus = this.strengthBonus + 100;
-  this.intelligenceBonus = this.intelligenceBonus + 100;
-  this.stealthBonus = this.stealthBonus + 100;
+  this.strengthBonus = + 100;
   this.healthBonus = this.healthBonus + 100;
+  this.magical = true;
+  this.stealth = + 100;
+
+  Unicorn.prototype = new PlayerClass();
 };
-Unicorn.prototype = new PlayerClass();
-
-
-
-
-
-
 
 

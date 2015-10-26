@@ -24,3 +24,5 @@ var Sphere = function() {
   this.type = this.damageTypes[random];
 };
 Sphere.prototype = new Spell();
+
+
