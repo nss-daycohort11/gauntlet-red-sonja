@@ -1,62 +1,110 @@
 $(document).ready(function() {
 
-  /*
-    Test code to generate a human player and an orc player
-   */
-  var warrior = new Human();
-  warrior.setWeapon(new WarAxe());
-  warrior.generateClass();  // This will be used for "Surprise me" option
-  console.log(warrior.toString());
+  var chosenProfession = null;
+  var chosenWeapon = null;
+  var battleground = null;
 
-  var orc = new Orc();
-  orc.generateClass();
-  orc.setWeapon(new BroadSword());
-  console.log(orc.toString());
+  var newPlayer = new Player();
+  var chooseClass = {
+    "Warrior": Warrior,
+    "Valkyrie": Valkyrie,
+    "Berserker": Berserker,
+    "Monk": Monk,
+    "Shaman": Shaman,
+    "Wizard": Wizard,
+    "Conjurer": Conjurer,
+    "Sorcerer": Sorcerer,
+    "Thief": Thief,
+    "Ninja": Ninja,
+    "Assassin": Assassin,
+    "Unicorn": Unicorn
+  }
 
-  /*
-    Test code to generate a spell
-   */
-  var spell = new Sphere();
-  console.log("spell: ", spell.toString());
+  var newWeapon = new Weapon();
+  var chooseClass = {
+    "Dagger": Dagger,
+    "BroadSword": BroadSword,
+    "WarAxe": WarAxe,
+    "Gloves": Gloves,
+    "Staff": Staff,
+    "CrystalBall": CrystalBall,
+    "Wand": Wand,
+    "ShrunkenHead": ShrunkenHead,
+    "ThrowingStars": ThrowingStars,
+    "CrossBow": CrossBow,
+    "PoisonDart": PoisonDart,
+    "Horn": Horn
+  }
 
+    $("#player-name").show();
 
-  /*
-    END OF TEST CODE
+    /*
+      When any button with card-link class is clicked,
+      move on to the next view.
+     */
+    $(".card-link").click(function(e) {
+      var nextCard = $(this).attr("next");
+      var moveAlong = true;
 
-    Show the initial view that accepts player name
-   */
-  $("#player-setup").show();
+      console.log(moveAlong)
+      if (moveAlong) {
+        $(".card").hide();
+        $("." + nextCard).show();
+      }
+      console.log($(".card-link").click)
+    });
 
-  /*
-    When any button with card__link class is clicked,
-    move on to the next view.
-   */
-  $(".card__link").click(function(e) {
-    var nextCard = $(this).attr("next");
-    var moveAlong = false;
-
-    switch (nextCard) {
-      case "card--class":
-        moveAlong = ($("#player-name").val() !== "");
-        break;
-      case "card--weapon":
-        moveAlong = ($("#player-name").val() !== "");
-        break;
-    }
-
-    if (moveAlong) {
+    /*
+      When the back button clicked, move back a view
+     */
+    $(".card-back").click(function(e) {
+      var previousCard = $(this).attr("previous");
       $(".card").hide();
-      $("." + nextCard).show();
-    }
+      $("." + previousCard).show();
+    });
+
+  $(".classes button").click(function(){
+    // Player.prototype.class = $(this).val();
+    newPlayer = new $(this).val();
+    console.log("this.val",$(this).val());
+    console.log(newPlayer);
+    var constructor = chooseClass[$(this).val()];
+    newPlayer.class = new constructor();
+    console.log(newPlayer);
   });
 
-  /*
-    When the back button clicked, move back a view
-   */
-  $(".card__back").click(function(e) {
-    var previousCard = $(this).attr("previous");
-    $(".card").hide();
-    $("." + previousCard).show();
-  });
+var weaponEl = $(".weapons button").click(function() {
+  newWeapon = new $(this).val();
+  
+})
+console.log($(".weapons button").val());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 });
+
+
+
+

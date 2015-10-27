@@ -7,11 +7,11 @@ var Spell = function() {
 
   this.damageTypes = ["lightning", "fire", "water", "earth", "mysticism"];
   this.type = "";
-
-  this.toString = function() {
-    return this.name + " of " + this.type + " for " + this.damage + " damage!";
-  }
 };
+  Spell.prototype.toString = function() {
+    return this.name;
+  };
+
 
 /*
   An elemental sphere that can be cast by a magical class
