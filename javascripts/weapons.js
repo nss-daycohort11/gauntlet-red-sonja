@@ -2,11 +2,21 @@ var Weapon = function() {
   this.name = "bare hands";
   this.damage = 1;
   this.hands = 2;
+  this.ranged = false;
+  this.poisoned = false;
 
-  this.toString = function() {
-    return this.name;
-  }
 };
+Weapon.prototype.toString = function() {
+  return this.name;
+}
+
+var Dart = function() {
+  this.name = "dart";
+  this.damage = 3;
+  this.hands = 1;
+  this.ranged = true;
+};
+Dart.prototype = new Weapon();
 
 var Dagger = function() {
   this.name = "dagger";
@@ -15,86 +25,111 @@ var Dagger = function() {
 };
 Dagger.prototype = new Weapon();
 
+var Dirk = function() {
+  this.name = "dirk";
+  this.damage = 5;
+  this.hands = 1;
+};
+Dirk.prototype = new Weapon();
+
+var ShortSword = function() {
+  this.name = "short sword";
+  this.damage = 6;
+  this.hands = 1;
+};
+ShortSword.prototype = new Weapon();
+
+var Mace = function() {
+  this.name = "mace";
+  this.damage = 6;
+  this.hands = 1;
+};
+Mace.prototype = new Weapon();
+
+var BallChain = function() {
+  this.name = "ball and chain";
+  this.damage = 8;
+  this.hands = 1;
+};
+BallChain.prototype = new Weapon();
+
+var LongSword = function() {
+  this.name = "long sword";
+  this.damage = 8;
+  this.hands = 2;
+};
+LongSword.prototype = new Weapon();
+
+var Rapier = function() {
+  this.name = "rapier";
+  this.damage = 8;
+  this.hands = 1;
+};
+Rapier.prototype = new Weapon();
+
+var PoisonBlowgun = function() {
+  this.name = "poison blowgun";
+  this.damage = 4;
+  this.hands = 1;
+  this.poisoned = true;
+  this.ranged = true;
+};
+PoisonBlowgun.prototype = new Weapon();
+
 var BroadSword = function() {
   this.name = "broad sword";
-  this.damage = 14;
+  this.damage = 8;
   this.hands = 2;
 };
 BroadSword.prototype = new Weapon();
 
 var WarAxe = function() {
   this.name = "war axe";
-  this.damage = 18;
+  this.damage = 10;
   this.hands = 2;
 };
 WarAxe.prototype = new Weapon();
 
-var Gloves = function() {
-  this.name = "gloves";
-  this.damage = 2;
+var Halberd = function() {
+  this.name = "halberd";
+  this.damage = 12;
   this.hands = 2;
 };
-Gloves.prototype = new Weapon();
+Halberd.prototype = new Weapon();
+
+var LongBow = function() {
+  this.name = "long bow";
+  this.damage = 8;
+  this.hands = 2;
+  this.ranged = true;
+};
+LongBow.prototype = new Weapon();
 
 var Staff = function() {
   this.name = "staff";
-  this.damage = 4;
-  this.intelligenceBonus = 0;
+  this.damage = 6;
   this.hands = 2;
 };
 Staff.prototype = new Weapon();
 
-var CrystalBall = function() {
-  this.name = "crystalBall";
-  this.damage = 1;
-  this.intelligenceBonus = 15;
-  this.hands = 2;
-};
-CrystalBall.prototype = new Weapon();
-
-var Wand = function() {
-  this.name = "wand";
-  this.damage = 3;
-  this.intelligenceBonus = 5;
-  this.hands = 1;
-};
-Wand.prototype = new Weapon();
-
-var ShrunkenHead = function() {
-  this.name = "Shrunken Head";
-  this.damage = 2;
-  this.intelligenceBonus = 10;
-  this.hands = 1;
-};
-ShrunkenHead.prototype = new Weapon();
-
-var ThrowingStars = function() {
-  this.name = "Throwing Stars";
+var ShortBow = function() {
+  this.name = "short bow";
   this.damage = 6;
-  this.stealthBonus = 15;
   this.hands = 2;
+  this.ranged = true;
 };
-ThrowingStars.prototype = new Weapon();
+ShortBow.prototype = new Weapon();
 
-var CrossBow = function() {
-  this.name = "Cross Bow";
-  this.damage = 8;
-  this.stealthBonus = 10;
-  this.hands = 2;
+var Nunchaku = function() {
+  this.name = "nunchaku";
+  this.damage = 6;
+  this.hands = 1;
 };
-CrossBow.prototype = new Weapon();
+Nunchaku.prototype = new Weapon();
 
-var PoisonDart = function() {
-  this.name = "Poison Dart";
-  this.damage = 10;
-  this.stealthBonus = 5;
-  this.hands = 2;
+var LightSaber = function() {
+  this.name = "light saber";
+  this.damage = 16;
+  this.hands = 1;
 };
-PoisonDart.prototype = new Weapon();
-
-var Horn = function() {
-  this.name = "Horn";
-  this.damage = 100;
-  this.hands = 0;
-};
-Horn.prototype = new Weapon();
+LightSaber.prototype = new Weapon();
