@@ -19,9 +19,10 @@ $(document).ready(function() {
     "Assassin": Assassin,
     "Unicorn": Unicorn
   }
+  console.log(chooseClass);
 
   var newWeapon = new Weapon();
-  var chooseClass = {
+  var chooseWeapon = {
     "Dagger": Dagger,
     "BroadSword": BroadSword,
     "WarAxe": WarAxe,
@@ -35,6 +36,8 @@ $(document).ready(function() {
     "PoisonDart": PoisonDart,
     "Horn": Horn
   }
+
+
 
     $("#player-name").show();
 
@@ -65,11 +68,8 @@ $(document).ready(function() {
 
   $(".classes button").click(function(){
     // Player.prototype.class = $(this).val();
-    newPlayer = new $(this).val();
+    newPlayer = new chooseClass[$(this).val()]; //Whatever string class button you click
     console.log("this.val",$(this).val());
-    console.log(newPlayer);
-    var constructor = chooseClass[$(this).val()];
-    newPlayer.class = new constructor();
     console.log(newPlayer);
   });
 

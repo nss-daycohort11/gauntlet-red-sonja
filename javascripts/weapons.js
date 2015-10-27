@@ -9,35 +9,35 @@ var Weapon = function() {
   }
 
 var Dagger = function() {
-  this.name = "dagger";
+  this.name = "Dagger";
   this.damage = 4;
   this.hands = 1;
 };
 Dagger.prototype = new Weapon();
 
 var BroadSword = function() {
-  this.name = "broad sword";
+  this.name = "BroadSword";
   this.damage = 14;
   this.hands = 2;
 };
 BroadSword.prototype = new Weapon();
 
 var WarAxe = function() {
-  this.name = "war axe";
+  this.name = "WarAxe";
   this.damage = 18;
   this.hands = 2;
 };
 WarAxe.prototype = new Weapon();
 
 var Gloves = function() {
-  this.name = "gloves";
+  this.name = "Gloves";
   this.damage = 2;
   this.hands = 2;
 };
 Gloves.prototype = new Weapon();
 
 var Staff = function() {
-  this.name = "staff";
+  this.name = "Staff";
   this.damage = 4;
   this.intelligenceBonus = 0;
   this.hands = 2;
@@ -45,7 +45,7 @@ var Staff = function() {
 Staff.prototype = new Weapon();
 
 var CrystalBall = function() {
-  this.name = "crystalBall";
+  this.name = "CrystalBall";
   this.damage = 1;
   this.intelligenceBonus = 15;
   this.hands = 2;
@@ -53,7 +53,7 @@ var CrystalBall = function() {
 CrystalBall.prototype = new Weapon();
 
 var Wand = function() {
-  this.name = "wand";
+  this.name = "Wand";
   this.damage = 3;
   this.intelligenceBonus = 5;
   this.hands = 1;
@@ -61,7 +61,7 @@ var Wand = function() {
 Wand.prototype = new Weapon();
 
 var ShrunkenHead = function() {
-  this.name = "Shrunken Head";
+  this.name = "ShrunkenHead";
   this.damage = 2;
   this.intelligenceBonus = 10;
   this.hands = 1;
@@ -69,7 +69,7 @@ var ShrunkenHead = function() {
 ShrunkenHead.prototype = new Weapon();
 
 var ThrowingStars = function() {
-  this.name = "Throwing Stars";
+  this.name = "ThrowingStars";
   this.damage = 6;
   this.stealthBonus = 15;
   this.hands = 2;
@@ -77,7 +77,7 @@ var ThrowingStars = function() {
 ThrowingStars.prototype = new Weapon();
 
 var CrossBow = function() {
-  this.name = "Cross Bow";
+  this.name = "CrossBow";
   this.damage = 8;
   this.stealthBonus = 10;
   this.hands = 2;
@@ -85,7 +85,7 @@ var CrossBow = function() {
 CrossBow.prototype = new Weapon();
 
 var PoisonDart = function() {
-  this.name = "Poison Dart";
+  this.name = "PoisonDart";
   this.damage = 10;
   this.stealthBonus = 5;
   this.hands = 2;

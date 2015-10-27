@@ -84,3 +84,7 @@ Player.prototype.generateClass = function() {
 // };
 
 // Monster.prototype = new Player();
+
+
+
+
