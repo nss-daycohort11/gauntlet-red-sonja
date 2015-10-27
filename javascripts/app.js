@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
-  var chosenProfession = null;
-  var chosenWeapon = null;
-  var battleground = null;
+  // var chosenProfession = null;
+  // var chosenWeapon = null;
+  // var battleground = null;
 
   var newPlayer = new Player();
   var chooseClass = {
@@ -88,13 +88,93 @@ $(document).ready(function() {
         newPlayer.Spell = new Sphere();
         console.log(newPlayer.Spell);
       }
+      return newPlayer;
   });
 
-$(".enemies button").click(function(){
-  newEnemy = new chooseEnemy[$(this).val()];
-  console.log(newEnemy);
-});
+  $(".enemies button").click(function(){
+    newEnemy = new chooseEnemy[$(this).val()];
+    console.log(newEnemy);
+    return newEnemy;
+  });
 
+
+// LET'S GET READY TO RUUUUUMBLLLEEEE
+
+$(".defeat-enemies button").click(function(){
+
+})
+
+var Battleground = function(playerFighter, enemyFighter) {
+  this.Player = playerFighter;
+  this.Enemy = enemyFighter;
+};
+
+Battleground.prototype.war = function() {
+  var playerDamage = Math.round(Math.random() * this.newPlayer.weapon.damage + 1);
+  var enemyDamage = Math.round(Math.random() * this.newEnemy.weapon.damage + 1);
+
+  var totalPlayerDamage = Math.floor(playerDamage + (this.newPlayer.strength / 10));
+  var totalEnemyDamage = Math.floor(enemyDamage + (this.newEnemy.strength / 10));
+
+  var warResult = "";
+  warResult += "<div class='war-total-player'>";
+  warResult += "--" + this.newPlayer.name + "(" + this.newPlayer.health + " hp) attacks for " + totalPlayerDamage + "damage";
+  warResult += "</div>";
+
+  warResult += "<div class='war-total-enemy'>";
+  warResult += "--" + this.newEnemy.name + "(" + this.newEnemy.health + " hp) attacks for " + totalEnemyDamage + "damage";
+  warResult += "</div>";
+
+  this.newPlayer.health -= totalEnemyDamage;
+  this.newEnemy.health -= totalPlayerDamage;
+
+  $("#battleground").append(warResult);
+
+  if (this.newPlayer.health <= 0) {
+    $("#battleground").append("<div>It. Is. Decided. You have perished amongst enemy hands.</div>"); 
+  } else if {
+    (this.newEnemy.health <= 0) {
+      $("#battleground").append("<div>It. Is. Decided. You are victorious.</div>");
+    }
+  }
+}
+
+
+
+
+
+// dis is steve
+
+
+// Battleground.prototype.melee = function() {
+//   var baseHumanDamage = Math.round(Math.random() * this.human.weapon.damage + 1);
+//   var baseEnemyDamage = Math.round(Math.random() * this.enemy.weapon.damage + 1);
+
+//   var totalHumanDamage = Math.floor(baseHumanDamage + (this.human.strength / 10));
+//   var totalEnemyDamage = Math.floor(baseEnemyDamage + (this.enemy.strength / 10));
+
+//   var battleResult = "";
+//   battleResult += "<div class=\"battle-record__human\">";
+//   battleResult += "&gt; " + this.human.playerName + "(" + this.human.health + " hp) attacks with " + this.human.weapon + " for " + totalHumanDamage + " damage";
+//   battleResult += "</div>";
+
+//   battleResult += "<div class=\"battle-record__enemy\">";
+//   battleResult += "&gt; " + this.enemy.species + "(" + this.enemy.health + " hp) attacks with " + this.enemy.weapon + " for " + totalEnemyDamage + " damage";
+//   battleResult += "</div>";
+
+//   this.human.health -= totalEnemyDamage;
+//   this.enemy.health -= totalHumanDamage;
+
+//   $("#battle-record").append(battleResult);
+
+//   if (this.human.health <= 0 || this.enemy.health <= 0) {
+//     $("#battle-record").append("<div>The battle is over. " + ((this.human.health > 0) ? "You" : "The " + this.enemy.species) + " won!</div>");
+
+//     return false;
+//   }
+
+//   return true;
+// };
 
 
 
