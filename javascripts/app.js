@@ -1,8 +1,7 @@
 $(document).ready(function() {
 
-  // var chosenProfession = null;
-  // var chosenWeapon = null;
-  // var battleground = null;
+
+
 
   var newPlayer = new Player();
   var chooseClass = {
@@ -19,6 +18,7 @@ $(document).ready(function() {
     "Assassin": Assassin,
     "Unicorn": Unicorn
   }
+
   console.log(chooseClass);
 
   var newWeapon = new Weapon();
@@ -58,21 +58,29 @@ $(document).ready(function() {
       var moveAlong = true;
 
       console.log(moveAlong)
+
+
+  
       if (moveAlong) {
         $(".card").hide();
         $("." + nextCard).show();
       }
+
       console.log($(".card-link").click)
+
     });
 
     /*
       When the back button clicked, move back a view
      */
-    $(".card-back").click(function(e) {
+
+    $(".card__back").click(function(e) {
+
       var previousCard = $(this).attr("previous");
       $(".card").hide();
       $("." + previousCard).show();
     });
+
 
   $(".classes button").click(function(){
     // Player.prototype.class = $(this).val();
@@ -142,6 +150,20 @@ Battleground.war ();
 });
 
 });
+
+
+  $(".classes button").click(function(){
+    // Player.prototype.class = $(this).val();
+    newPlayer = new $(this).val();
+    console.log("this.val",$(this).val());
+    console.log(newPlayer);
+    var constructor = chooseClass[$(this).val()];
+    newPlayer.class = new constructor();
+    console.log(newPlayer);
+  });
+
+});
+
 
 
 

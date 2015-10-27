@@ -14,6 +14,7 @@ var PlayerClass = function() {
 PlayerClass.prototype.toString = function() {
   return this.name;
 };
+PlayerClass.prototype=new Player();
 
 
 /*
@@ -147,7 +148,6 @@ var Stealth = function() {
 };
   Stealth.prototype = new PlayerClass ();
 
-
 var Thief = function() {
   this.name = "Thief";
   this.magical = false;
@@ -167,7 +167,6 @@ var Ninja = function() {
   Ninja.prototype = new Stealth ();
   AvailableClasses.Ninja = new Ninja();
 
-
 var Assassin = function() {
   this.name = "Assassin";
   this.strengthBonus = + 5;
@@ -177,7 +176,6 @@ var Assassin = function() {
 };
   Assassin.prototype = new Stealth ();
   AvailableClasses.Assassin = new Assassin();
-
 
 //Unicorn Class
   //unicorn
@@ -192,10 +190,6 @@ var Assassin = function() {
 };
   Unicorn.prototype = new PlayerClass();
   AvailableClasses.Unicorn = new Unicorn();
-
-
-
-
 
 
 
