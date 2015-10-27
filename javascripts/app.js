@@ -101,45 +101,17 @@ $(document).ready(function() {
 
 // LET'S GET READY TO RUUUUUMBLLLEEEE
 
-$(".defeat-enemies button").on("click", function () {
-  var Battleground = function(playerFighter, enemyFighter) {
-    this.Player = playerFighter;
-    this.Enemy = enemyFighter;
-  };
+var playerFighter = newPlayer;
+var enemyFighter = newEnemy;
 
-  Battleground.prototype.war = function() {
-    var playerDamage = Math.round(Math.random() * this.newPlayer.weapon.damage + 1);
-    var enemyDamage = Math.round(Math.random() * this.newEnemy.weapon.damage + 1);
+console.log(playerFighter);
 
-    var totalPlayerDamage = Math.floor(playerDamage + (this.newPlayer.strength / 10));
-    var totalEnemyDamage = Math.floor(enemyDamage + (this.newEnemy.strength / 10));
+$(".defeat-enemies").on("click", function() {
+    console.log("Happy");
 
-    var warResult = "";
-    warResult += "<div class='war-total-player'>";
-    warResult += "--" + this.newPlayer.name + "(" + this.newPlayer.health + " hp) attacks for " + totalPlayerDamage + "damage";
-    warResult += "</div>";
-
-    warResult += "<div class='war-total-enemy'>";
-    warResult += "--" + this.newEnemy.name + "(" + this.newEnemy.health + " hp) attacks for " + totalEnemyDamage + "damage";
-    warResult += "</div>";
-
-    var warButton = "";
-    warButton
-
-    this.newPlayer.health -= totalEnemyDamage;
-    this.newEnemy.health -= totalPlayerDamage;
-
-    $("#battleground").append(warResult);
-
-    if (this.newPlayer.health <= 0) {
-      $("#battleground").append("<div>It. Is. Decided. You have perished amongst enemy hands.</div>"); 
-    } else if 
-      (this.newEnemy.health <= 0) {
-        $("#battleground").append("<div>It. Is. Decided. You are victorious.</div>");
-      }
-  }
-Battleground.war ();
-});
+  Battle(playerFighter, enemyFighter);
+  // $("#battleground").html(war);
+})
 
 });
 
