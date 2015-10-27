@@ -37,6 +37,14 @@ $(document).ready(function() {
     "Horn": Horn
   }
 
+  var newEnemy = new Monster();
+  var chooseEnemy = {
+    "Orc": Orc,
+    "Queen": Queen,
+    "Tuzun": Tuzun,
+    "Andar": Andar
+  }
+
 
 
     $("#player-name").show();
@@ -73,21 +81,19 @@ $(document).ready(function() {
     console.log(newPlayer);
   });
 
-var weaponEl = $(".weapons button").click(function() {
-  newWeapon = new $(this).val();
-  
-})
-console.log($(".weapons button").val());
+  $(".weapons button").click(function(){
+    newPlayer.weapon = new chooseWeapon[$(this).val()];
+    console.log(newPlayer);
+      if (newPlayer.magical === true) {
+        newPlayer.Spell = new Sphere();
+        console.log(newPlayer.Spell);
+      }
+  });
 
-
-
-
-
-
-
-
-
-
+$(".enemies button").click(function(){
+  newEnemy = new chooseEnemy[$(this).val()];
+  console.log(newEnemy);
+});
 
 
 

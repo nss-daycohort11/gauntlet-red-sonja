@@ -2,13 +2,13 @@ var AvailableEnemies = {};
 
 
 
-var Monster = function(name) {
+var Monster = function() {
   // this.species = null;
   // this.class = null;
   // this.weapon = null;
   
-  this.MonsterName = name;
-  this.health = Math.floor(Math.random() * 40 + 50);
+  // this.MonsterName = name;
+  // this.health = Math.floor(Math.random() * 40 + 50);
   this.limbs = ["head", "neck", "arm", "leg", "torso"];
   this.skinColor = "gray";
   this.skinColors = [this.skinColor];
@@ -32,8 +32,8 @@ var Monster = function(name) {
     ].join("");
     return output;
   };
-  MonsterClass.prototype.toString = function () {
-    return this.MonsterName;
+  // Monster.prototype.toString = function() {
+  //   return this.MonsterName;
 };
 
 
@@ -122,7 +122,7 @@ var Andar = function() {
 Andar.prototype = new Monster();
 AvailableEnemies.Andar = new Andar();
 
-};
+
 
 
 

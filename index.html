@@ -51,8 +51,19 @@
           <button value="PoisonDart">Poison Dart</button>
           <button value="Horn">Horn</button>
         </div>
+        <button value="choose-your-enemy" class="btn card-link" next="card-enemy">CHOOSE YOUR ENEMY</button>
+      </section>
+      <section id="enemy-select" class="card card-enemy">
+        <div>CHOOSE YOUR ENEMY</div>
+        <button value="back" class="card-back btn" current="card-enemy" previous="card-weapon">BACK</button>
+        <div class="enemies card-prompt">
+          <button value="Orc">Orc</button>
+          <button value="Queen">Queen</button>
+          <button value="Tuzun">Tuzun</button>
+          <button value="Andar">Andar</button>
+        </div>
         <div class="card-button">
-        <button value="defeat-enemies" class="btn card-link" current="card-weapon" next="card-battleground">DEFEAT YOUR ENEMIES</button>
+          <button value="defeat-enemies" class="btn card-link defeat-enemies" current="card-weapon" next="card-battleground">DEFEAT YOUR ENEMIES</button>
         </div>
       </section>
 
