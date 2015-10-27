@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 /*
   Define the base object for any player of Gauntlet,
   whether a human player or a monster.
  */
+=======
+
+>>>>>>> b755da59f25500e80e25c84236e3b1f77067d69c
 var Player = function() {
   this.species = null;
   this.class = null;
@@ -9,26 +13,44 @@ var Player = function() {
   this.playerName = null;
   this.protection = 0;
 
+<<<<<<< HEAD
   this.health = 0;
+=======
+  this.playerName = name || "Red Sonja";
+  this.health = Math.floor(Math.random() * 40 + 50);
+>>>>>>> b755da59f25500e80e25c84236e3b1f77067d69c
   this.limbs = ["head", "neck", "arm", "leg", "torso"];
   this.skinColor = "gray";
   this.skinColors = [this.skinColor];
   this.strength = 90;
   this.intelligence = 90;
+<<<<<<< HEAD
 };
+=======
+  };
+>>>>>>> b755da59f25500e80e25c84236e3b1f77067d69c
 
 Player.prototype.toString = function() {
   var output = [this.playerName,
     ": a ",
     this.skinColor,
+<<<<<<< HEAD
     (this.skinColor) ? " skinned " : "",
+=======
+    " skinned ",
+>>>>>>> b755da59f25500e80e25c84236e3b1f77067d69c
     this.species,
     " ",
     this.class,
     " with ",
     this.health,
     " health. ",
+<<<<<<< HEAD
     (this.class.magical) ? "I smell a mage" : " Wielding a " + this.weapon,
+=======
+    (this.class.magical) ? "Able to cast " : " Wielding a ",
+    this.weapon.toString(),
+>>>>>>> b755da59f25500e80e25c84236e3b1f77067d69c
     "!"
   ].join("");
   return output;
@@ -78,6 +100,7 @@ Player.prototype.generateClass = function() {
   this.setClass(new window[randomClass]());
 };
 
+<<<<<<< HEAD
 Player.prototype.setClass = function(newClass) {
   this.class = newClass;
   this.modifyHealth(newClass.healthBonus);
@@ -101,4 +124,7 @@ Player.prototype.setSkin = function() {
   var randomSkin = Math.round(Math.random() * (this.skinColors.length-1));
   this.skinColor = this.skinColors[randomSkin];
 };
+=======
+
+>>>>>>> b755da59f25500e80e25c84236e3b1f77067d69c
 

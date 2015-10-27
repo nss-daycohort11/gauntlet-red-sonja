@@ -8,6 +8,7 @@ var Spell = function() {
   this.damage = 0;
   this.defensive = false;
 
+<<<<<<< HEAD
   this.elements = ["lightning", "fire", "water", "earth", "mysticism"];
   this.damageType = "";
 };
@@ -20,7 +21,15 @@ Spell.prototype.cast = function() {
   var random = Math.round(Math.random() * (this.elements.length - 1));
   this.damageType = this.elements[random];
   return {name: this.name, damageType: this.damageType, damage: this.damage};
+=======
+  this.damageTypes = ["lightning", "fire", "water", "earth", "mysticism"];
+  this.type = "";
+>>>>>>> b755da59f25500e80e25c84236e3b1f77067d69c
 };
+  Spell.prototype.toString = function() {
+    return this.name;
+  };
+
 
 /*
   Protection spells
@@ -48,6 +57,7 @@ var Sphere = function() {
   this.name = "sphere";
   this.damage = Math.floor(Math.random() * 3 + 7);
 };
+<<<<<<< HEAD
 Sphere.prototype = new Spell();
 
 var Missile = function() {
@@ -67,3 +77,7 @@ var Bolt = function() {
   this.damage = Math.floor(Math.random() * 7 + 6);
 };
 Bolt.prototype = new Spell();
+=======
+
+Sphere.prototype = new Spell();
+>>>>>>> b755da59f25500e80e25c84236e3b1f77067d69c
