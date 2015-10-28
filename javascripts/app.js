@@ -154,7 +154,7 @@ function Game () {
   this.turn = 0;
 
   this.healthReport = function() {
-    battleground("Player health: " + newPlayer.health + " Enemy health:" + newEnemy.health, "report")
+    battleground("Player health: " + newPlayer.health + "<br />" + "Enemy health: " + newEnemy.health, "report")
   }
 
   this.gameOver = function () {
@@ -179,7 +179,10 @@ function Game () {
       this.gameOver();
     }
   }
+    $(".battleground").animate({
+      scrollTop: $(".battleground").get(0).scrollHeight}, 10000);
 }
+
 
 $("button.start").click(function () {
   if (!game) {
@@ -198,7 +201,7 @@ $("button.attack").click(function() {
     battleground("Your game hasn't started yet! Click start to begin!", "error")
   } else {
     game.turn += 1
-    battleground("-------TURN------- " + game.turn, "turn" )
+    battleground("TURN " + game.turn, "turn" )
     game.startTurn();
   }
 });
