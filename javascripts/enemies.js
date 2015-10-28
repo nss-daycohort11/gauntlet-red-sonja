@@ -8,12 +8,12 @@ var Monster = function() {
   // this.weapon = null;
   
   // this.MonsterName = name;
-  // this.health = Math.floor(Math.random() * 40 + 50);
+  this.health = Math.floor(Math.random() * 40 + 50);
   this.limbs = ["head", "neck", "arm", "leg", "torso"];
   this.skinColor = "gray";
   this.skinColors = [this.skinColor];
-  this.strength = 90;
-  this.intelligence = 90;
+  this.strength = 10;
+  this.intelligence = 10;
 
   this.toString = function() {
     var output = [this.MonsterName,
@@ -39,7 +39,7 @@ var Monster = function() {
 
 var Orc = function() {
   this.MonsterName = "Bobby";
-  this.health = this.health + 20;
+  this.health = Math.floor(Math.random() * 40 + 50);
   this.species = "Orc";
   this.allowedClasses = ["Warrior", "Berserker", "Shaman"];
   this.intelligence = this.intelligence - 20;
@@ -65,6 +65,7 @@ var Queen = function() {
   this.MonsterName = "Queen Gedren";
   this.allowedClasses = ["Valkyrie", "Thief", "Ninja", "Assassin"];
   this.intelligence = this.intelligence + 5;
+  this.health = Math.floor(Math.random() * 40 + 50);
   this.generateClass = function() {
     // Get a random index from the allowed classes array
     var random = Math.round(Math.random() * (this.allowedClasses.length - 1));
@@ -86,6 +87,7 @@ var Tuzun = function() {
   this.allowedClasses = ["Monk", "Wizard", "Sorcerer"];
   this.intelligence = this.intelligence + 10;
   this.strength = this.strength - 10;
+  this.health = Math.floor(Math.random() * 40 + 50);
   this.generateClass = function() {
     // Get a random index from the allowed classes array
     var random = Math.round(Math.random() * (this.allowedClasses.length - 1));
@@ -107,6 +109,7 @@ var Andar = function() {
   this.allowedClasses = ["Conjurer"];
   this.intelligence = this.intelligence + 20;
   this.strength = this.strength + 20;
+  this.health = Math.floor(Math.random() * 40 + 50);
   this.generateClass = function() {
     // Get a random index from the allowed classes array
     var random = Math.round(Math.random() * (this.allowedClasses.length - 1));

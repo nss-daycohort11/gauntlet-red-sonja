@@ -108,37 +108,37 @@ var battleground = function (yarn, style) {
 };
 
 
-// PLAYER CONSTRUCTION
-function Player () {
-  this.health = 50;
+// // PLAYER CONSTRUCTION
+// function newPlayer () {
+//   this.health = 50;
 
-  this.attack = function () {
-    if (this.id === "player") {
-      enemy.health -= this.damage();
-    } else {
-      player.health -= this.damage();
-    }
-  }
+//   this.attack = function () {
+//     if (this.id === "player") {
+//       enemy.health -= this.damage();
+//     } else {
+//       player.health -= this.damage();
+//     }
+//   }
 
-  this.id ="player";
+//   this.id ="player";
 
-  this.damage = function () {
-    var damage = Math.floor(Math.random() * 14)
-    return damage
-  }
-}
-// END PLAYER CONSTRUCTION
+//   this.damage = function () {
+//     var damage = Math.floor(Math.random() * 14)
+//     return damage
+//   }
+// }
+// // END PLAYER CONSTRUCTION
 
-// ENEMY CONSTRUCTION
-function Enemy () {
-  this.damage = function () {
-    var damage = Math.floor(Math.random() * Math.floor(this.health / 2));
-    return damage
-  }
-  this.id = "enemy";
-}
+// // ENEMY CONSTRUCTION
+// function newEnemy () {
+//   this.damage = function () {
+//     var damage = Math.floor(Math.random() * Math.floor(this.health / 2));
+//     return damage
+//   }
+//   this.id = "enemy";
+// }
 
-Enemy.prototype = new Player();
+// Enemy.prototype = new Player();
 
 var game
 var enemy
@@ -146,13 +146,15 @@ var playerFighter
 
 // GAME CONSTRUCTOR
 function Game () {
-  enemy = new Enemy();
-  player = new Player();
+  // enemy = new Monster();
+  // player = new Player();
+    newPlayer.health = Math.floor(Math.random() * 40 + 50);
+    newEnemy.health = Math.floor(Math.random() * 10 + 20);
 
   this.turn = 0;
 
   this.healthReport = function() {
-    battleground("Player health: " + player.health + " Enemy health:" + enemy.health, "report")
+    battleground("Player health: " + newPlayer.health + " Enemy health:" + newEnemy.health, "report")
   }
 
   this.gameOver = function () {
@@ -161,19 +163,18 @@ function Game () {
   }
 
   this.startTurn = function () {
-    player.attack();
-    enemy.attack();
+    Battle(newPlayer, newEnemy);
 
     this.healthReport();
 
-    if (player.health <= 0) {
-      if (enemy.health <= 0) {
+    if (newPlayer.health <= 0) {
+      if (newEnemy.health <= 0) {
         battleground("DRAW. YOU'RE BOTH DEAD", "loss")
       } else {
         battleground("YOU DIED.", "loss")
       }
       this.gameOver()
-    } else if (enemy.health <= 0) {
+    } else if (newEnemy.health <= 0) {
       battleground("YOU WON!!!", "victory")
       this.gameOver();
     }
