@@ -12,13 +12,13 @@
       
       <section id="player-name" class="card card-name">
         <div class="sonja">YOU ARE RED SONJA!</div>
-        <div><img src="photos/red-sonja-main.gif" width="500px"</div> 
-        <button value="select-a-class" class="btn card-link" next="card-class">Select A Class</button>
+        <div><img src="photos/red-sonja-main.gif" width="500px"></div> 
+        <button value="select-a-class" class="btn card-link" next="card-class">CHOOSE A CLASS</button>
       </section>
 
 
       <section id="class-select" class="card card-class">
-        <div class="title">CHOOSE YOUR PATH</div>
+        <div class="title">CHOOSE A CLASS</div>
         <div class="classes">
           <button class="button" value="Warrior">Warrior</button>
           <button class="button" value="Valkyrie">Valkyrie</button>
@@ -37,7 +37,7 @@
       </section>
 
       <section id="weapon-select" class="card card-weapon">
-        <div class="title">CHOOSE YOUR WEAPON</div>
+        <div class="title">CHOOSE A WEAPON</div>
         <button value="back" class="card-back btn" current="card-weapon" previous="card-class">BACK</button>
         <div class="weapons card-prompt">
           <button class="button" value="Dagger">Dagger</button>
@@ -54,7 +54,7 @@
         <button value="choose-your-enemy" class="btn card-link" next="card-enemy">CHOOSE YOUR ENEMY</button>
       </section>
       <section id="enemy-select" class="card card-enemy">
-        <div class="title">CHOOSE YOUR ENEMY</div>
+        <div class="title">CHOOSE AN ENEMY</div>
         <button value="back" class="card-back btn" current="card-enemy" previous="card-weapon">BACK</button>
         <div class="enemies card-prompt">
           <button class="button" value="Orc">Orc</button>
@@ -63,7 +63,7 @@
           <button class="button" value="Andar">Andar</button>
         </div>
         <div class="card-button">
-          <button value="defeat-enemies" class="btn card-link defeat-enemies" current="card-weapon" next="card-battleground">DEFEAT YOUR ENEMIES</button>
+          <button value="defeat-enemies" class="btn card-link defeat-enemies" current="card-weapon" next="card-battleground">DEFEAT YOUR ENEMY</button>
         </div>
       </section>
 
@@ -73,6 +73,7 @@
           <button class="attack btn">ATTACK</button>
         </div>
         <div class="battleground"></div>
+        <button value="back" class="card-back btn" current="card-battleground" previous="card-weapon">BACK</button>
       </section>
 
     </article>

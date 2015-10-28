@@ -75,6 +75,15 @@ $(document).ready(function() {
       $("." + previousCard).show();
     });
 
+
+// TRY TO CREATE BUTTON THAT TAKES YOU BACK TO FIRST CARD
+  // $(".to-beginning").click(function(e) {
+  //   var firstCard = $(this).id("#player-name");
+  //   console.log("firstCard", firstCard);
+  // });
+
+
+
   $(".classes button").click(function(){
     // Player.prototype.class = $(this).val();
     newPlayer = new chooseClass[$(this).val()]; //Whatever string class button you click
@@ -154,13 +163,14 @@ function Game () {
   this.turn = 0;
 
   this.healthReport = function() {
-    battleground("Player health: " + newPlayer.health + "<br />" + "Enemy health: " + newEnemy.health, "report")
+    battleground("Sonja the " + newPlayer.name + " health: " + newPlayer.health + "<br />" + newEnemy.MonsterName + " health: " + newEnemy.health, "report")
   }
 
   this.gameOver = function () {
     battleground("GAME OVER", "over")
     game = null;
   }
+
 
   this.startTurn = function () {
     Battle(newPlayer, newEnemy);
@@ -169,18 +179,18 @@ function Game () {
 
     if (newPlayer.health <= 0) {
       if (newEnemy.health <= 0) {
-        battleground("DRAW. YOU'RE BOTH DEAD", "loss")
+        battleground("DRAW. You are both dead.", "loss")
       } else {
-        battleground("YOU DIED.", "loss")
+        battleground("Sonja the " + newPlayer.name + " perished by " + newEnemy.MonsterName + "'s hands.", "loss")
       }
       this.gameOver()
     } else if (newEnemy.health <= 0) {
-      battleground("YOU WON!!!", "victory")
+      battleground("Sonja the " + newPlayer.name + " defeated " + newEnemy.MonsterName + "!", "victory")
       this.gameOver();
     }
   }
     $(".battleground").animate({
-      scrollTop: $(".battleground").get(0).scrollHeight}, 10000);
+      scrollTop: $(".battleground").get(0).scrollHeight}, 1000);
 }
 
 
@@ -190,7 +200,7 @@ $("button.start").click(function () {
     game = new Game();
     battleground("The battle has begun!", "intro")
   } else {
-    battleground("You're game is already in progress!", "error")
+    battleground("A battle is already in progress!", "error")
   }
 })
 
@@ -198,22 +208,16 @@ $("button.start").click(function () {
 // attack button
 $("button.attack").click(function() {
   if (!game) {
-    battleground("Your game hasn't started yet! Click start to begin!", "error")
+    battleground("Click start to begin!", "error")
   } else {
     game.turn += 1
-    battleground("TURN " + game.turn, "turn" )
+    battleground("ROUND " + game.turn, "turn" )
     game.startTurn();
   }
 });
 
+
 });
-
-
-
-
-
-
-
 
 
 
