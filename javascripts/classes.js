@@ -9,6 +9,7 @@ var PlayerClass = function() {
   this.strengthBonus = 0;
   this.intelligenceBonus = 0;
   this.magical = false;
+  this.health = Math.floor(Math.random() * 40 + 50);
 };
 
 PlayerClass.prototype.toString = function() {
@@ -25,7 +26,7 @@ PlayerClass.prototype=new Player();
       - Monk
  */
 var Fighter = function() {
-  this.healthBonus = 20;
+  this.healthBonus = 10;
   this.strengthBonus = 10;
 };
 Fighter.prototype = new PlayerClass();
@@ -34,7 +35,7 @@ AvailableClasses.Fighter = new Fighter();
 
 var Warrior = function() {
   this.name = "Warrior";
-  this.healthBonus = this.healthBonus + 25;
+  this.healthBonus = this.healthBonus + 20;
   this.strengthBonus = this.strengthBonus + 30;
   this.allowedWeapons = ["Dagger", "BroadSword", "WarAxe"]
 };
@@ -44,7 +45,7 @@ AvailableClasses.Warrior = new Warrior();
 
 var Valkyrie = function() {
   this.name = "Valkyrie";
-  this.healthBonus = this.healthBonus + 20;
+  this.healthBonus = this.healthBonus + 25;
   this.strengthBonus = this.strengthBonus + 10;
   this.allowedWeapons = ["Dagger", "BroadSword", "WarAxe"]
 };
@@ -54,7 +55,7 @@ AvailableClasses.Valkyrie = new Valkyrie();
 
 var Berserker = function() {
   this.name = "Berserker";
-  this.healthBonus = this.healthBonus + 35;
+  this.healthBonus = this.healthBonus + 30;
   this.strengthBonus = this.strengthBonus + 20;
   this.allowedWeapons = ["Dagger", "BroadSword", "WarAxe"]
 };
@@ -64,7 +65,7 @@ AvailableClasses.Berserker = new Berserker();
 
 var Monk = function() {
   this.name = "Monk";
-  this.healthBonus = this.healthBonus + 10;
+  this.healthBonus = this.healthBonus + 40;
   this.strengthBonus = this.strengthBonus + 40;
   this.allowedWeapons = ["Gloves", "Staff"]
 };

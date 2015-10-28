@@ -10,6 +10,7 @@ function Battle (playerFighter, enemyFighter) {
   this.newPlayer = playerFighter;
   console.log(this.newPlayer);
   this.newEnemy = enemyFighter;
+
     var playerDamage = Math.round(Math.random() * this.newPlayer.Weapon.damage + 1);
     var enemyDamage = Math.round(Math.random() * this.newEnemy.Weapon.damage + 1);
 
