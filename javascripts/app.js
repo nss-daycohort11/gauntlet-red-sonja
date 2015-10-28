@@ -19,7 +19,7 @@ $(document).ready(function() {
     "Assassin": Assassin,
     "Unicorn": Unicorn
   }
-  console.log(chooseClass);
+  // console.log(chooseClass);
 
   var newWeapon = new Weapon();
   var chooseWeapon = {
@@ -36,6 +36,7 @@ $(document).ready(function() {
     "PoisonDart": PoisonDart,
     "Horn": Horn
   }
+  // console.log(chooseWeapon);
 
   var newEnemy = new Monster();
   var chooseEnemy = {
@@ -44,7 +45,7 @@ $(document).ready(function() {
     "Tuzun": Tuzun,
     "Andar": Andar
   }
-
+  // console.log(chooseEnemy);
 
 
     $("#player-name").show();
@@ -62,7 +63,7 @@ $(document).ready(function() {
         $(".card").hide();
         $("." + nextCard).show();
       }
-      console.log($(".card-link").click)
+      // console.log($(".card-link").click)
     });
 
     /*
@@ -93,27 +94,182 @@ $(document).ready(function() {
 
   $(".enemies button").click(function(){
     newEnemy = new chooseEnemy[$(this).val()];
-    console.log(newEnemy);
-    return newEnemy;
-    // console.log(newWhatever);
+    console.log("new enemy", newEnemy);
   });
 
 
 // LET'S GET READY TO RUUUUUMBLLLEEEE
 
-var playerFighter = newPlayer;
-var enemyFighter = newEnemy;
+// battle record
+var battle = $(".battleground");
 
-console.log(playerFighter);
+var battleground = function (yarn, style) {
+  battle.append("<div class=' " + style + "'>" + yarn + "</div>");
+  console.log("HELLO", battleground);
+};
 
-$(".defeat-enemies").on("click", function() {
-    console.log("Happy");
 
-  Battle(playerFighter, enemyFighter);
-  // $("#battleground").html(war);
+// PLAYER CONSTRUCTION
+function Player () {
+  this.health = 50;
+
+  this.attack = function () {
+    if (this.id === "player") {
+      enemy.health -= this.damage();
+    } else {
+      player.health -= this.damage();
+    }
+  }
+
+  this.id ="player";
+
+  this.damage = function () {
+    var damage = Math.floor(Math.random() * 14)
+    return damage
+  }
+}
+// END PLAYER CONSTRUCTION
+
+// ENEMY CONSTRUCTION
+function Enemy () {
+  this.damage = function () {
+    var damage = Math.floor(Math.random() * Math.floor(this.health / 2));
+    return damage
+  }
+  this.id = "enemy";
+}
+
+Enemy.prototype = new Player();
+
+var game
+var enemy
+var playerFighter
+
+// GAME CONSTRUCTOR
+function Game () {
+  enemy = new Enemy();
+  player = new Player();
+
+  this.turn = 0;
+
+  this.healthReport = function() {
+    battleground("Player health: " + player.health + " Enemy health:" + enemy.health, "report")
+  }
+
+  this.gameOver = function () {
+    battleground("GAME OVER", "over")
+    game = null;
+  }
+
+  this.startTurn = function () {
+    player.attack();
+    enemy.attack();
+
+    this.healthReport();
+
+    if (player.health <= 0) {
+      if (enemy.health <= 0) {
+        battleground("DRAW. YOU'RE BOTH DEAD", "loss")
+      } else {
+        battleground("YOU DIED.", "loss")
+      }
+      this.gameOver()
+    } else if (enemy.health <= 0) {
+      battleground("YOU WON!!!", "victory")
+      this.gameOver();
+    }
+  }
+}
+
+$("button.start").click(function () {
+  if (!game) {
+    battle.html("");
+    game = new Game();
+    battleground("The battle has begun!", "intro")
+  } else {
+    battleground("You're game is already in progress!", "error")
+  }
 })
 
+
+// attack button
+$("button.attack").click(function() {
+  if (!game) {
+    battleground("Your game hasn't started yet! Click start to begin!", "error")
+  } else {
+    game.turn += 1
+    battleground("-------TURN------- " + game.turn, "turn" )
+    game.startTurn();
+  }
 });
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// dis is garbage...right now
+// var playerFighter = newPlayer;
+// var enemyFighter = newEnemy;
+
+// console.log(playerFighter);
+
+// $(".defeat-enemies").on("click", function() {
+//     console.log("Happy");
+
+//   Battle(playerFighter, enemyFighter);
+//   // $("#battleground").html(war);
+// })
+
 
 
 
