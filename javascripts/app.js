@@ -105,7 +105,6 @@ var battle = $(".battleground");
 
 var battleground = function (yarn, style) {
   battle.append("<div class=' " + style + "'>" + yarn + "</div>");
-  console.log("HELLO", battleground);
 };
 
 
