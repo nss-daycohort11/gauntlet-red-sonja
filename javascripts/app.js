@@ -47,7 +47,7 @@ $(document).ready(function() {
   };
 
 
-  }
+  });
 
 
 
@@ -232,7 +232,6 @@ $("button.attack").click(function() {
   }
 });
 
-});
 
 
 
